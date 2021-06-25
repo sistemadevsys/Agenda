@@ -121,6 +121,7 @@ static_collected
 .venv_devsys
 *pyc
 .env
+*env
 .vscode
 # mypy_cache
 
