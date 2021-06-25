@@ -14,9 +14,13 @@
     <br>
     <label>Data do Evento:</label>
     <br>
-    <!-- <input type="datetime-local" name="data_evento" value="{{ evento.get_data_input_evento }}"> -->
-    <input placeholder="Data" class="form-control" type="text" onfocus="(this.type='date')" onblur="(this.value == '{{ evento.get_data_input_evento }}' ? this.type='text' : this.type='date')">
- 
+    <!-- <input type="datetime-local" name="data_evento" value="{{ evento.get_data_input_evento }}" required> -->
+    <input placeholder="Data" class="form-control" name="data_evento" type="text" onfocus="(this.type='date')" onblur="(this.value == '{{ evento.get_data_input_evento }}' ? this.type='text' : this.type='date')" required>
+
+    <!-- <div class="controls">
+        <input class="span4" type="text" name="Campo" placeholder="Campo"  value=""  required oninvalid="this.setCustomValidity(\'Campo requerido\')">
+    </div> -->
+
     <br>
     <label>Descrição:</label>
     <br>
@@ -26,9 +30,9 @@
     <br>
     <textarea class="form-control" name="local_evento" rows="2" cols="35">{{ evento.local_evento }}</textarea>
     <br> <br>
-    <button type="submit" class="btn btn-outline-success my-2 my-sm-0"><b>Salvar</b></button>
-    <a href="/">
-        <button type="submit" class="btn btn-outline-danger my-2 my-sm-0">Cancelar</button>
-    </a>
+    <button style="float:left; margin-right: 5px;" type="submit" class="btn btn-outline-success my-2 my-sm-0"><b>Salvar</b></button>
 </form>
+    <a href="/">
+        <button class="btn btn-outline-danger my-2 my-sm-0">Cancelar</button>
+    </a>
 {% endblock %}
