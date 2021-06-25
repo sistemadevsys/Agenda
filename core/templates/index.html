@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+{% block header %}
+{% include 'includes/header.html' with titulo='Agenda' descricao='Crie sua agenda com diversos títulos, datas e descrição para os eventos, que ficaram marcados se estiverem atrasados.' %}
+{% endblock header %}
+{% block conteudo %}
+{% load static %}
+
+
+    <div class="row">
+      <div class="col-md-8 mb-5">
+        <h2>Funcionamento</h2>
+        <hr>
+        <p>Para o melhor funcionamento do sistema é necessário utilizar browser (navegadores) atualizados, como: Google Chrome, Opera, Edge...</p>
+        <a class="btn btn-primary btn-lg" href="#">Call to Action &raquo;</a>
+      </div>
+      <div class="col-md-4 mb-5">
+        <h2>Dados de Contato</h2>
+        <hr>
+        Peça seu Login e Senha
+        <address>
+          <abbr title="Email">E-mail</abbr>
+          <a href="mailto:c-costa-@outlook.com">c-costa-@outlook.com</a>
+        </address>
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <img class="card-img-top" src="{% static 'images/agenda-ft.png' %}" alt="Agenda">
+          <div class="card-body">
+
+              <h2 class="card-title">Agenda</h2>
+
+
+            <p class="card-text">Os eventos são listados conforme a data de criação.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Find Out More!</a>
+          </div>
+        </div>
+      </div>
+
+
+      {% comment %}
+      Comentário - Modelo de outro projeto - laço
+      {% for curso_id, curso in cursos_home.items %}
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <img class="card-img-top" src="http://placehold.it/300x200" alt="">
+          <div class="card-body">
+            {% ifequal curso.titulo "Django Fundamentos" %}
+              <h2 class="card-title">{{curso.titulo}}</h2>
+            {% else %}
+              <h4 class="card-title">{{curso_id}} - {{curso.titulo}}</h4>
+            {% endifequal %}
+            <p class="card-text">{{curso.descricao}}</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Find Out More!</a>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+        <h3>Novos cursos serão lançados em breve</h3>
+      {% endfor %}
+      
+      {% endcomment %}
+
+    </div>
+    <!-- /.row -->
+
+{% endblock conteudo %}

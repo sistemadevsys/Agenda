@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block header %}
+{% include 'includes/header.html' with titulo='Login' descricao='Faça seu login e aproveite sua agenda.' %}
+{% endblock header %}
+
+{% block conteudo %}
+
+    <h1>Login</h1>
+    <form action="submit" method="POST">{% csrf_token %}
+       
+            &emsp;&emsp;
+            <label>Usuário:</label>&emsp;
+            <input type="text" name="username">
+            &emsp;&emsp;
+            <label>Password:</label>
+            <input type="password" name="password"> 
+
+
+            <div class="btn-group; position-static; col-lg-12" style="text-align: right;" role="group" >
+              <button type="submit" class="btn btn-primary">Entrar</button>
+            </div>
+            <br>
+    </form>
+
+    {% for message in messages %}
+      <br>
+      <div align="left">
+        &emsp;&emsp; 
+        <strong>Erro: </strong>{{ message }}
+      </div>
+    {% endfor %}
+    
+{% endblock %}
