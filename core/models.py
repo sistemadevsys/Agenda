@@ -8,19 +8,20 @@ class Evento(models.Model):
     local_evento = models.TextField(blank=True, null=True)
     data_evento = models.DateTimeField(verbose_name='Data do Evento')
     data_criacao = models.DateTimeField(auto_now=True)
+
+    ativar_desativar = models.NullBooleanField(blank=True)
+
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
 
     # class Meta: db_table = 'evento' <- não funcionou
     def __str__(self):
-    
         return self.titulo
 
     def get_data_evento(self):
         return self.data_evento.strftime('%d/%m/%Y %H h : %M min')
-    
+
     def get_data_input_evento(self):
         return self.data_evento.strftime('%Y-%m-%dT%H:%M')
-    
 
     # Eventos atrasados menor que 20 dias da data atual.
     def get_evento_atrasado(self):
