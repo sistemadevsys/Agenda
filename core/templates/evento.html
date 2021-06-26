@@ -10,14 +10,14 @@
     <label>Título:</label>
     <input class="form-control" type="number" name="id_evento" value="{{ evento.id }}" hidden>
     <br>
-    <input class="form-control"  type="text" name="titulo" size="23" value="{{ evento.titulo }}">
+    <input class="form-control"  type="text" name="titulo" size="23" value="{{ evento.titulo }}" required>
     <br>
     <label>Data do Evento:</label>
     <br>
     <!-- <input type="datetime-local" name="data_evento" value="{{ evento.get_data_input_evento }}" required> -->
-    <input placeholder="Data" class="form-control" name="data_evento" type="text" onfocus="(this.type='date')" onblur="(this.value == '{{ evento.get_data_input_evento }}' ? this.type='text' : this.type='date')" required>
+    <input placeholder="Data" class="form-control" name="data_evento" type="text" onfocus="(this.type='datetime-local')" onblur="(this.value == '{{ evento.get_data_input_evento }}' ? this.type='text' : this.type='datetime-local')" required>
 
-    <!-- <div class="controls">
+    <!--Mensagem customizada required <div class="controls">
         <input class="span4" type="text" name="Campo" placeholder="Campo"  value=""  required oninvalid="this.setCustomValidity(\'Campo requerido\')">
     </div> -->
 

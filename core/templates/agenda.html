@@ -22,7 +22,8 @@
               <a href="evento/?id={{ evento.id }}" style="text-decoration:none">
                 <button type="submit" class="btn btn-outline-primary my-2 my-sm-0">Editar</button>
               </a>
-              
+              <!-- Criar um campo boleano na tabela para marcar como desativado
+                   e poder ativar posteriormente -->
               <a href="evento/delete/{{ evento.id }}/">
                 <button type="submit" class="btn btn-outline-danger my-2 my-sm-0" onclick="return confirm('Tem certeza que deseja deletar esse registro?');">Excluir</button>
               </a>
